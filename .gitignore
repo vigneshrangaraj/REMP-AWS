@@ -107,3 +107,5 @@ CI-CD-Part2/dist
 CI-CD-Part2/node_modules
 
 node_modules
+
+dist
