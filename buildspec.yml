@@ -13,5 +13,5 @@ phases:
       - "docker push public.ecr.aws/e2c9a1x6/angular-node:latest"
   pre_build:
     commands:
-      - "echo Logging in to Docker Hub..."
+      - "echo Logging in to Docker Hub.."
 version: 0.1
