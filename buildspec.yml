@@ -1,4 +1,9 @@
 ---
+env:
+  shell: bash
+  secrets-manager:
+    DOCKERHUB_USERNAME: DockerHubSecret:dockerhub_username
+    DOCKERHUB_PASSWORD: DockerHubSecret:dockerhub_password
 phases:
   build:
     commands:
@@ -14,4 +19,5 @@ phases:
   pre_build:
     commands:
       - "echo Logging in to Docker Hub..."
+      - "docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD"
 version: 0.1
