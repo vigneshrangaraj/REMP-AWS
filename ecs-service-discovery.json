@@ -1,0 +1,20 @@
+{
+  "cluster": "tutorial",
+  "serviceName": "ecs-service-discovery",
+  "taskDefinition": "REMPTask",
+  "serviceRegistries": [
+    {
+      "registryArn": "arn:aws:servicediscovery:us-east-2:262280214026:service/srv-77xhxr7d3idh5kos"
+    }
+  ],
+  "launchType": "FARGATE",
+  "platformVersion": "LATEST",
+  "networkConfiguration": {
+    "awsvpcConfiguration": {
+      "assignPublicIp": "ENABLED",
+      "securityGroups": [ " sg-0a037a16f68896318" ],
+      "subnets": [ "subnet-e0ab589d" ]
+    }
+  },
+  "desiredCount": 1
+}

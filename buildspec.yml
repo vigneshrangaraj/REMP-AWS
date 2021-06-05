@@ -1,0 +1,17 @@
+---
+phases:
+  build:
+    commands:
+      - "echo Build started on `date`"
+      - "echo Building the Docker image..."
+      - "docker build -t angular-node ."
+      - "docker tag angular-node:latest public.ecr.aws/e2c9a1x6/angular-node:latest"
+  post_build:
+    commands:
+      - "echo Build completed on `date`"
+      - "echo Pushing the Docker image..."
+      - "docker push public.ecr.aws/e2c9a1x6/angular-node:latest"
+  pre_build:
+    commands:
+      - "echo Logging in to Docker Hub..."
+version: 0.1
