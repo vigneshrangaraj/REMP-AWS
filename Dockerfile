@@ -12,6 +12,9 @@ COPY package.json .
 COPY server.js .
 COPY lib ./lib
 COPY config.js .
+COPY appspec.yml .
+COPY buildspec.yml .
+COPY taskdef.json .
 RUN wget https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
 RUN chmod 400 rds-combined-ca-bundle.pem
 COPY webpack.config.js .
