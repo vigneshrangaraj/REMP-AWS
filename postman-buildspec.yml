@@ -6,7 +6,7 @@ phases:
   build:
     commands:
       - cd postman
-      - newman run -r html,cli REMPApi.postman_collection --reporter-html-export report.html
+      - newman run -r html,cli REMPApi.postman_collection.json --reporter-html-export report.html
 
 artifacts:
   files:
