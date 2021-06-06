@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "angular-node",
-      "image": "public.ecr.aws/e2c9a1x6/angular-node",
+      "image": "public.ecr.aws/e2c9a1x6/angular-node:latest",
       "essential": true,
       "portMappings": [
         {
