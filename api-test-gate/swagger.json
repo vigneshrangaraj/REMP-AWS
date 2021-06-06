@@ -1,0 +1,69 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Real Estate Market Pricing App"
+  },
+  "host": "petstore.swagger.io",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "basic",
+      "description": "Everything about your Pets"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/message": {
+      "get": {
+        "tags": [
+          "basic"
+        ],
+        "summary": "Gets welcome message",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pet"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Pet": {
+      "type": "object",
+      "required": [
+        "name",
+        "photoUrls"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "format": "1242342"
+        },
+        "type": {
+          "type": "string",
+          "example": "HW"
+        },
+        "message": {
+          "type": "string",
+          "example": "Hello!"
+        }
+      }
+    }
+  }
+}

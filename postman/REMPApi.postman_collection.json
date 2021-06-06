@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "9de7979e-0064-4e8a-8137-6c070a22fbd1",
+		"name": "REMPApi",
+		"description": "Set of APIs for REMP App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Message",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b2bee111-c344-4660-84e1-24f56f7b1cef",
+						"exec": [
+							"pm.test(\"Is a valid object\", function() {",
+							"    pm.response.to.be.json;",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://remp-alb-1861535656.us-east-2.elb.amazonaws.com:8080/message",
+					"host": [
+						"http://remp-alb-1861535656.us-east-2.elb.amazonaws.com"
+					],
+					"port": "8080",
+					"path": [
+						"message"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
