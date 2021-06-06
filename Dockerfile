@@ -9,7 +9,6 @@ COPY --from=ui-build /usr/src/app ./
 COPY routes ./routes
 COPY package-lock.json .
 COPY package.json .
-COPY package-lock%202.json .
 COPY server.js .
 COPY lib ./lib
 COPY config.js .
