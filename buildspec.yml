@@ -20,7 +20,6 @@ phases:
     commands:
       - "echo Build completed on `date`"
       - "echo Pushing the Docker image..."
-      - "aws "
       - "docker push public.ecr.aws/e2c9a1x6/angular-node:latest"
   pre_build:
     commands:
