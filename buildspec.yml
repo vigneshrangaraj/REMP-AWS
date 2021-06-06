@@ -19,9 +19,11 @@ phases:
     commands:
       - "echo Build completed on `date`"
       - "echo Pushing the Docker image..."
+      - "aws "
       - "docker push public.ecr.aws/e2c9a1x6/angular-node:latest"
   pre_build:
     commands:
       - "echo Logging in to Docker Hub..."
       - "docker login --username $DOCKERHUB_USERNAME --password $DOCKERHUB_PASSWORD"
+      - "aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/e2c9a1x6"
 version: 0.1
