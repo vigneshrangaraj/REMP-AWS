@@ -5,6 +5,15 @@
       "name": "angular-node",
       "image": "public.ecr.aws/e2c9a1x6/angular-node",
       "essential": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "/ecs/REMPTask",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
       "portMappings": [
         {
           "containerPort": 3080,
