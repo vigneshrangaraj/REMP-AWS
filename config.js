@@ -1,9 +1,9 @@
 module.exports = {
     mongoEnv: function() {
         return {
-            mongoHost: 'docdb-2021-06-01-21-42-15.cluster-c6lauubiqzeo.us-east-2.docdb.amazonaws.com',
+            mongoHost: 'cluster0.9hog1.mongodb.net',
             mongoPort: 27017,
-            mongoDatabase: 'REMP',
+            mongoDatabase: 'myFirstDatabase',
             mongoUser: 'REMPUser',
             mongoPassword: 'REMPadmin',
         }

@@ -29,6 +29,10 @@ var init = () => {
         })
 };
 
+var twoSum = function(nums, target) {
+    return [nums.length, target];
+};
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 });
