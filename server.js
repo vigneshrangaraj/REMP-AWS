@@ -12,6 +12,7 @@ var predictRouter = require('./routes/prediction');
 var propertiesRouter = require('./routes/properties');
 
 var app = express();
+const port = 8080;
 
 app.use(bodyParser.urlencoded({
     limit: "5mb",
@@ -34,6 +35,7 @@ app.use('/users', usersRouter);
 app.use('/predict', predictRouter);
 app.use('/properties', propertiesRouter);
 
+app.use(express.static(__dirname +"/CI-CD-Part2/dist/CI-CD-Part2"));
 
 var init = () => {
     dbConn.mongoConnect()
@@ -61,6 +63,11 @@ app.use(function(err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error');
+});
+
+
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
 });
 
 module.exports = app;
