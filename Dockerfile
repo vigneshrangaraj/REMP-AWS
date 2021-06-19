@@ -10,6 +10,7 @@ COPY routes ./routes
 COPY package-lock.json .
 COPY package.json .
 COPY server.js .
+COPY cross_val.js .
 COPY lib ./lib
 COPY config.js .
 COPY appspec.yml .
