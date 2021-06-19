@@ -16,6 +16,10 @@
 						"exec": [
 							"pm.test(\"Is a valid object\", function() {",
 							"    pm.response.to.be.json;",
+							"})",
+							"",
+							"pm.test(\"Response body is valid\", function () {",
+							"    pm.response.to.have.jsonBody('type', 'HW');",
 							"})"
 						],
 						"type": "text/javascript"
@@ -31,14 +35,125 @@
 				},
 				"url": {
 					"raw": "http://remp-alb-1861535656.us-east-2.elb.amazonaws.com:8080/message",
+					"protocol": "http",
 					"host": [
-						"http://remp-alb-1861535656.us-east-2.elb.amazonaws.com"
+						"remp-alb-1861535656",
+						"us-east-2",
+						"elb",
+						"amazonaws",
+						"com"
 					],
 					"port": "8080",
 					"path": [
 						"message"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Properties",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "12b7c556-0aa7-47ae-a0b9-60be16d7a363",
+						"exec": [
+							"pm.test(\"Is a valid object\", function() {",
+							"    pm.response.to.be.json;",
+							"})",
+							"",
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://remp-alb-1861535656.us-east-2.elb.amazonaws.com:8080/properties",
+					"protocol": "http",
+					"host": [
+						"remp-alb-1861535656",
+						"us-east-2",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"properties"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Predict",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f2b81b3-f018-447e-a2df-b95c44eb0442",
+						"exec": [
+							"pm.test(\"Is a valid object\", function() {",
+							"    pm.response.to.be.json;",
+							"})",
+							"",
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"const schema = {",
+							"  \"data\": \"integer\"",
+							"};",
+							"",
+							"pm.test(\"Response contains predicted value\", function () {",
+							"    pm.response.to.have.jsonSchema(schema);",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"LotArea\": 11622,\n        \"TotalBsmtSF\": 882,\n        \"GrLivArea\": 896,\n        \"FullBath\": 1,\n        \"BedroomAbvGr\": 2,\n        \"TotRmsAbvGrd\": 5,\n        \"WoodDeckSF\": 140,\n        \"1stFlrSF\": 896,\n        \"2ndFlrSF\": 0,\n        \"GarageCars\": 1\n    }"
+				},
+				"url": {
+					"raw": "http://remp-alb-1861535656.us-east-2.elb.amazonaws.com:8080/predict",
+					"protocol": "http",
+					"host": [
+						"remp-alb-1861535656",
+						"us-east-2",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"predict"
+					]
+				},
+				"description": "Predicting a property"
 			},
 			"response": []
 		}

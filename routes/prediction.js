@@ -5,7 +5,15 @@ var cross_val = require('../cross_val');
 /* GET users listing. */
 router.post('/', function(req, res, next) {
     console.log(req.body);
-    var body = JSON.parse(Object.keys(req.body)[0]);
+    var body = req.body;
+    // try {
+    //     var body = JSON.parse(req.body);
+    // } catch (e) {
+    //     console.log('Error parsing JSON');
+    //     console.log(e);
+    //     res.json({e: e});
+    // }
+
     console.log(body);
     var values = [
         body["LotArea"],
@@ -18,7 +26,7 @@ router.post('/', function(req, res, next) {
         body["1stFlrSF"],
         body["2ndFlrSF"],
         body["GarageCars"]
-    ]
+    ];
     var data = cross_val.predict(values);
     res.json({data: data});
 });

@@ -16,14 +16,8 @@ router.get('/', function (req, res, next) {
 
 router.post('/createProp', function (req, res, next) {
     var body = req.body;
-    var keys = Object.keys(req.body);
-    try {
-        var body1 = JSON.parse(keys[0])
-    } catch (e) {
-        console.log('Error', e);
-    }
 
-    app.mongo.collection('properties').insertOne(body1, function(err, results) {
+    app.mongo.collection('properties').insertOne(body, function(err, results) {
         if (err) {
             console.log('/properties: Error inserting item');
             console.log();
