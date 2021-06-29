@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.dev';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,8 @@ import {HttpClient} from '@angular/common/http';
 export class ConfigService {
   constructor(private http: HttpClient) { }
 
-  rootURL: "/";
-
   getMessage() {
-    return this.http.get( "/message");
+    return this.http.get( `api/message`);
   }
 }
 

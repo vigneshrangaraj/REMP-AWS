@@ -5,11 +5,13 @@ var logger = require('morgan');
 var dbConn = require('./lib/dbConnection');
 var cross_val = require('./cross_val');
 var bodyParser = require('body-parser');
+var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var predictRouter = require('./routes/prediction');
 var propertiesRouter = require('./routes/properties');
+
 
 var app = express();
 const port = 8080;
@@ -30,12 +32,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/predict', predictRouter);
-app.use('/properties', propertiesRouter);
+app.use('/api/', indexRouter);
+app.use('/api/predict', predictRouter);
+app.use('/api/properties', propertiesRouter);
 
 app.use(express.static(__dirname +"/CI-CD-Part2/dist/CI-CD-Part2"));
+
+
+app.use(cors());
 
 var init = () => {
     dbConn.mongoConnect()
