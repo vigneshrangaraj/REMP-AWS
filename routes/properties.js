@@ -52,7 +52,7 @@ router.post('/editProp', function (req, res, next) {
 });
 
 router.post('/deleteProp/', function (req, res, next) {
-    var body = req.body
+    var body = req.body;
     var keys = Object.keys(req.body);
     try {
         var body1 = JSON.parse(keys[0])

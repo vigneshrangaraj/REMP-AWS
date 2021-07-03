@@ -1,31 +1,32 @@
-:host {
-  background: #343a40;
-}
+
 
 #sidebar {
-  min-width: 200px;
-  max-width: 200px;
+  min-width: 400px;
+  max-width: 400px;
   min-height: 100vh;
   color: #fff;
+  position: relative;
   transition: all 0.3s;
   font-weight: 300;
   font-size: 1rem;
   line-height: 1.5;
 }
 
-#sidebar.hidden {
-  margin-left: -200px;
+#sidebarnav.hidden {
+  margin-left: -600px;
 }
 
-a[data-toggle="collapse"] {
-  position: relative;
+#sidebarnav {
+  margin-left: 10px;
+  padding-top: 50px;
+  transition: all 0.3s;
 }
 
 @media (max-width: 575px) {
-  #sidebar {
+  #sidebarnav {
     margin-left: -200px;
   }
-  #sidebar.hidden {
+  #sidebarnav.hidden {
     margin-left: 0;
   }
 }
@@ -37,15 +38,6 @@ a, a:hover, a:focus {
 #sidebar .sidebar-header {
   padding: 20px;
 }
-
-/*#sidebar ul li a {*/
-/*  padding: 15px;*/
-/*  display: block;*/
-/*  width: 100%;*/
-/*&:hover {*/
-/*   background-color: rgba(255, 255, 255, 0.1);*/
-/* }*/
-/*}*/
 
 hr {
   border-top: 1px solid #fff;

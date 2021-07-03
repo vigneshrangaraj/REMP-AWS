@@ -8,6 +8,9 @@ import { AuthorisedTopNavComponent } from './layout/authorised/authorised-top-na
 import { AuthorisedSideNavTogglerComponent } from './layout/authorised/authorised-side-nav-toggler/authorised-side-nav-toggler.component';
 import { AuthorisedLayoutComponent } from './layout/authorised-layout/authorised-layout.component';
 import { AuthorisedSideNavComponent } from './layout/authorised/authorised-side-nav/authorised-side-nav.component';
+import { PropertyItemComponent } from './properties/property-list/property-item/property-item.component';
+import { PropertyListComponent } from './properties/property-list/property-list.component';
+import { PropertiesComponent } from './properties/properties.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { AuthorisedSideNavComponent } from './layout/authorised/authorised-side-
     AuthorisedTopNavComponent,
     AuthorisedSideNavTogglerComponent,
     AuthorisedLayoutComponent,
-    AuthorisedSideNavComponent
+    AuthorisedSideNavComponent,
+    PropertyItemComponent,
+    PropertyListComponent,
+    PropertiesComponent
   ],
   imports: [
     BrowserModule,
