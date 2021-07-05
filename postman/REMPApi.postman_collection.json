@@ -45,6 +45,7 @@
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"message"
 					]
 				}
@@ -90,6 +91,7 @@
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"properties"
 					]
 				}
@@ -150,6 +152,7 @@
 					],
 					"port": "8080",
 					"path": [
+						"api",
 						"predict"
 					]
 				},

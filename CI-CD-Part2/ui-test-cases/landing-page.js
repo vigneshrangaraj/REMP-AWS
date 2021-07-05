@@ -2,9 +2,6 @@ const webdriver = require('selenium-webdriver'),
   By = webdriver.By,
   until = webdriver.until,
   Key = webdriver.Key;
-const chrome = require('selenium-webdriver/chrome');
-const firefox = require('selenium-webdriver/firefox');
-
 
 (async function example() {
   let driver = new webdriver.Builder()
@@ -14,7 +11,7 @@ const firefox = require('selenium-webdriver/firefox');
   try {
     await driver.get('http://remp-alb-1861535656.us-east-2.elb.amazonaws.com:8080/');
     driver.getTitle().then(function(title) {
-      if(title === 'CICDPart2') {
+      if(title === 'REMP') {
         console.log('Test passed');
       } else {
         console.log('Test failed');
