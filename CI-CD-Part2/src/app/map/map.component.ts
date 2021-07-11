@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
+import './leaflet-sidebar';
+
 
 @Component({
   selector: 'app-map',
@@ -8,7 +10,7 @@ import * as L from 'leaflet';
 })
 export class MapComponent implements OnInit {
 
-  private map;
+  map;
 
   constructor() { }
 
@@ -25,9 +27,15 @@ export class MapComponent implements OnInit {
     });
 
     tiles.addTo(this.map);
+
+    var sidebar = L.control.sidebar({ container: 'sidebar', autopan: true })
+      .addTo(this.map)
+      .open('autopan');
+
   }
 
   ngOnInit(): void {
+
   }
 
   ngAfterViewInit(): void { this.initMap(); }

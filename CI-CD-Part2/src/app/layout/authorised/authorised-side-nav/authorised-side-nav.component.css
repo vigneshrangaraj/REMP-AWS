@@ -4,7 +4,7 @@
   min-width: 400px;
   max-width: 400px;
   min-height: 100vh;
-  color: #fff;
+  color: rgba(6, 1, 1, 0.76);
   position: relative;
   transition: all 0.3s;
   font-weight: 300;
