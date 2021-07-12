@@ -30,7 +30,7 @@ export class MapComponent implements OnInit {
 
     var sidebar = L.control.sidebar({ container: 'sidebar', autopan: true })
       .addTo(this.map)
-      .open('autopan');
+      .open('area');
 
   }
 

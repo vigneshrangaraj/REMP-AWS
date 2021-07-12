@@ -9,29 +9,15 @@ import {Property} from "../property.model";
 export class PropertyListComponent implements OnInit {
   @Output() propertyWasSelected = new EventEmitter<Property>();
   properties: Property[] = [
-    new Property("15430 Endeavor Dr", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_7JU7hSPtjGwPqF_BxKMTWv3FxAxkyHX3g&usqp=CAU", "$156459.0", 12, 23,45,67
+    new Property("07/01/2021", "https://media.istockphoto.com/vectors/ticket-icon-vector-id925179234", "Transformer", 12, 23,45,67
     , 54, 4, 6, 6,6, 6),
-    new Property("4300 Randolph Way", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_7JU7hSPtjGwPqF_BxKMTWv3FxAxkyHX3g&usqp=CAU", "$156459.0", 12, 23,45,67
+    new Property("07/01/2021", "https://media.istockphoto.com/vectors/ticket-icon-vector-id925179234", "Lateral", 12, 23,45,67
       , 54, 4, 6, 6,6, 6),
-    new Property("15430 Endeavor Dr", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_7JU7hSPtjGwPqF_BxKMTWv3FxAxkyHX3g&usqp=CAU", "$156459.0", 12, 23,45,67
+    new Property("07/01/2021", "https://media.istockphoto.com/vectors/ticket-icon-vector-id925179234", "Lateral", 12, 23,45,67
       , 54, 4, 6, 6,6, 6),
-    new Property("4300 Randolph Way", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_7JU7hSPtjGwPqF_BxKMTWv3FxAxkyHX3g&usqp=CAU", "$156459.0", 12, 23,45,67
+    new Property("07/01/2021", "https://media.istockphoto.com/vectors/ticket-icon-vector-id925179234", "Overhead", 12, 23,45,67
       , 54, 4, 6, 6,6, 6),
-    new Property("15430 Endeavor Dr", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_7JU7hSPtjGwPqF_BxKMTWv3FxAxkyHX3g&usqp=CAU", "$156459.0", 12, 23,45,67
-      , 54, 4, 6, 6,6, 6),
-    new Property("4300 Randolph Way", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_7JU7hSPtjGwPqF_BxKMTWv3FxAxkyHX3g&usqp=CAU", "$156459.0", 12, 23,45,67
-      , 54, 4, 6, 6,6, 6),
-    new Property("15430 Endeavor Dr", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_7JU7hSPtjGwPqF_BxKMTWv3FxAxkyHX3g&usqp=CAU", "$156459.0", 12, 23,45,67
-      , 54, 4, 6, 6,6, 6),
-    new Property("4300 Randolph Way", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_7JU7hSPtjGwPqF_BxKMTWv3FxAxkyHX3g&usqp=CAU", "$156459.0", 12, 23,45,67
-      , 54, 4, 6, 6,6, 6),
-    new Property("15430 Endeavor Dr", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_7JU7hSPtjGwPqF_BxKMTWv3FxAxkyHX3g&usqp=CAU", "$156459.0", 12, 23,45,67
-      , 54, 4, 6, 6,6, 6),
-    new Property("4300 Randolph Way", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_7JU7hSPtjGwPqF_BxKMTWv3FxAxkyHX3g&usqp=CAU", "$156459.0", 12, 23,45,67
-      , 54, 4, 6, 6,6, 6),
-    new Property("15430 Endeavor Dr", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_7JU7hSPtjGwPqF_BxKMTWv3FxAxkyHX3g&usqp=CAU", "$156459.0", 12, 23,45,67
-      , 54, 4, 6, 6,6, 6),
-    new Property("4300 Randolph Way", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA_7JU7hSPtjGwPqF_BxKMTWv3FxAxkyHX3g&usqp=CAU", "$156459.0", 12, 23,45,67
+    new Property("07/01/2021", "https://media.istockphoto.com/vectors/ticket-icon-vector-id925179234", "Underground", 12, 23,45,67
       , 54, 4, 6, 6,6, 6),
   ];
 
