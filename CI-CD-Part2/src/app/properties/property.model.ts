@@ -1,4 +1,5 @@
 export class Property {
+  public _id: string;
   public address: string;
   public photo: string;
   public result: string;
@@ -12,6 +13,8 @@ export class Property {
   public firstFloor: number;
   public secondFloor: number;
   public carsGarage: number;
+  public lat: number;
+  public lng: number;
 
   constructor(address: string, photo: string, result: string, lotArea: number, basement: number,
               livingArea: number, baths: number, rooms: number, bedRooms: number, deck: number,

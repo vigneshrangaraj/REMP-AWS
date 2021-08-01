@@ -1,16 +1,31 @@
+<app-notifications></app-notifications>
+<button *ngIf="!showNewProperty" class="btn btn-dark" (click)="newPropertyClicked()">
+  New Property
+</button>
 <div class="row">
-  <div class="col-xs-12">
-    <button class="btn btn-dark">
-      Refresh
-    </button>
+  <div class="col-xs-12" [hidden]="showNewProperty">
+    <p *ngIf="showNewProperty">
+      You are creating a new property
+    </p>
   </div>
 </div>
 <hr/>
-<div id="card">
+
+<div [hidden]="!showNewProperty">
+  <app-property-create (proeprtyWasCreated)="propertyCreated()"></app-property-create>
+  <button class="btn btn-warning" (click)="newPropertyCanceled()">
+    Cancel
+  </button>
+</div>
+<div id="card" [hidden]="showNewProperty">
   <div class="col-xs-12">
 
-    <app-property-item *ngFor="let propertyEl of properties"
-                     [property]="propertyEl"
-                     (propertyClicked)="onPropClicked(propertyEl)"></app-property-item>
+    <app-property-item
+      *ngFor="let propertyEl of properties; index as i"
+      (propertyWasEdited)="getProperties()"
+      [property]="propertyEl"
+      [i]="i"
+    >
+    </app-property-item>
   </div>
 </div>

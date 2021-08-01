@@ -11,6 +11,11 @@ import { AuthorisedSideNavComponent } from './layout/authorised/authorised-side-
 import { PropertyItemComponent } from './properties/property-list/property-item/property-item.component';
 import { PropertyListComponent } from './properties/property-list/property-list.component';
 import { PropertiesComponent } from './properties/properties.component';
+import { PropertyEditComponent } from './properties/property-edit/property-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PropertyPricingComponent } from './properties/property-pricing/property-pricing.component';
+import { PropertyCreateComponent } from './properties/property-create/property-create.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +27,17 @@ import { PropertiesComponent } from './properties/properties.component';
     AuthorisedSideNavComponent,
     PropertyItemComponent,
     PropertyListComponent,
-    PropertiesComponent
+    PropertiesComponent,
+    PropertyEditComponent,
+    PropertyPricingComponent,
+    PropertyCreateComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

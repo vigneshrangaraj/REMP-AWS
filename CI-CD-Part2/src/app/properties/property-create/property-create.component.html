@@ -1,0 +1,105 @@
+<form [formGroup]="myForm" [hidden]="setLatLoc">
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input type="text" class="form-control" id="address" formControlName="address" aria-describedby="addHelp" placeholder="Enter address">
+    <small id="addHelp" class="form-text text-muted">Accurate address will help us locate your property.</small>
+  </div>
+  <div class="form-group">
+    <label for="lotArea">Lot Area</label>
+    <input type="number" class="form-control" id="lotArea" formControlName="lotArea" placeholder="Enter lot area in Sq Ft">
+  </div>
+
+  <div class="form-group">
+    <label for="baseArea">Basement Area</label>
+    <input type="number" class="form-control" id="baseArea" formControlName="basement" placeholder="Enter basement area in Sq Ft">
+  </div>
+
+  <div class="form-group">
+    <label for="photo">Photo</label>
+    <input type="text" class="form-control" id="photo" formControlName="photo" placeholder="Enter the url of a property from the web">
+  </div>
+
+  <div class="form-group">
+    <label for="livingArea">Living Area</label>
+    <input type="number" class="form-control" id="livingArea" formControlName="livingArea" placeholder="Enter living area in Sq Ft">
+  </div>
+
+  <div class="form-group">
+    <label for="baths">Baths</label>
+    <input type="number" class="form-control" id="baths" formControlName="baths" placeholder="Enter number of baths">
+  </div>
+
+  <div class="form-group">
+    <label for="rooms">Rooms</label>
+    <input type="number" class="form-control" id="rooms" formControlName="rooms" placeholder="Enter number of rooms above ground">
+  </div>
+
+  <div class="form-group">
+    <label for="bedRooms">Bed Rooms</label>
+    <input type="number" class="form-control" id="bedRooms" formControlName="bedRooms" placeholder="Enter number of bed rooms">
+  </div>
+
+  <div class="form-group">
+    <label for="deck">Deck Area</label>
+    <input type="number" class="form-control" id="deck" formControlName="deck" placeholder="Enter deck area in sq ft">
+  </div>
+
+  <div class="form-group">
+    <label for="firstFloor">First Floor Area</label>
+    <input type="number" class="form-control" id="firstFloor" formControlName="firstFloor" placeholder="Enter first floor sq ft">
+  </div>
+
+  <div class="form-group">
+    <label for="secondFloor">Second Floor Area</label>
+    <input type="number" class="form-control" id="secondFloor" formControlName="secondFloor" placeholder="Enter second floor sq ft">
+  </div>
+
+  <div class="form-group">
+    <label for="carsGarage">Cars</label>
+    <input type="number" class="form-control" id="carsGarage" formControlName="carsGarage" placeholder="How many cars can be parked in garage?">
+  </div>
+
+  <app-property-pricing [result]='estimate'></app-property-pricing>
+
+  <div class="btn-toolbar pull-right">
+    <button
+      (click)="activateLatLng()"
+      [disabled]="this.pin.added"
+      class="btn btn-outline-warning"> <i class="fa fa-location-arrow"></i></button>
+    &nbsp;
+    <button
+      [disabled]="(myForm.invalid || myForm.pristine)
+      || !this.calculated " type="button"
+      (click)="onSubmit(myForm)"
+      class="btn btn-primary"
+    >
+      Create <i [hidden]="!submitting" class="fa fa-spinner"></i></button>
+    &nbsp;
+    <button
+      [disabled]="myForm.invalid
+      || myForm.pristine
+      || this.calculated"
+      (click)="onCalculate(myForm)"
+      type="button"
+      class="btn btn-primary"
+    >
+      Calculate  <i [hidden]="!calculating" class="fa fa-spinner"></i></button>
+  </div>
+
+</form>
+
+<div [hidden]="!setLatLoc">
+  <div style="padding-bottom: 5px; color: cadetblue" class="panel panel-info">
+    Click on the map to place the marker. To unset a placement, click on another place.
+  </div>
+  &nbsp;
+  <div class="btn-toolbar pull-right">
+    <button
+      (click)="deactivateLatLng()"
+      class="btn btn-sm btn-outline-dark"> Cancel </button>
+    &nbsp;
+    <button
+      (click)="getLatLng()"
+      class="btn btn-sm btn-outline-primary"> Set </button>
+  </div>
+</div>

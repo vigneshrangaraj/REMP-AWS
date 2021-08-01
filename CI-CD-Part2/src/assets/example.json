@@ -1,0 +1,20 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.27277,
+          30.4518
+        ]
+      },
+      "properties": {
+        "cost": "103456",
+        "bedrooms": 2,
+        "poolArea": "50.04 SqFt"
+      }
+    }
+  ]
+}

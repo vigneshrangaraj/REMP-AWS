@@ -16,18 +16,19 @@ router.post('/', function(req, res, next) {
 
     console.log(body);
     var values = [
-        body["LotArea"],
-        body["TotalBsmtSF"],
-        body["GrLivArea"],
-        body["FullBath"],
-        body["BedroomAbvGr"],
-        body["TotRmsAbvGrd"],
-        body["WoodDeckSF"],
-        body["1stFlrSF"],
-        body["2ndFlrSF"],
-        body["GarageCars"]
+        body["lotArea"],
+        body["basement"],
+        body["livingArea"],
+        body["baths"],
+        body["bedRooms"],
+        body["rooms"],
+        body["deck"],
+        body["firstFloor"],
+        body["secondFloor"],
+        body["carsGarage"]
     ];
     var data = cross_val.predict(values);
+
     res.json({data: data});
 });
 

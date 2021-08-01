@@ -1,5 +1,7 @@
 import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {Property} from "../property.model";
+import {PropertyService} from "../property.service";
+import {StemService} from "../../map/stem.service";
 
 @Component({
   selector: 'app-property-list',
@@ -8,26 +10,46 @@ import {Property} from "../property.model";
 })
 export class PropertyListComponent implements OnInit {
   @Output() propertyWasSelected = new EventEmitter<Property>();
-  properties: Property[] = [
-    new Property("07/01/2021", "https://media.istockphoto.com/vectors/ticket-icon-vector-id925179234", "Transformer", 12, 23,45,67
-    , 54, 4, 6, 6,6, 6),
-    new Property("07/01/2021", "https://media.istockphoto.com/vectors/ticket-icon-vector-id925179234", "Lateral", 12, 23,45,67
-      , 54, 4, 6, 6,6, 6),
-    new Property("07/01/2021", "https://media.istockphoto.com/vectors/ticket-icon-vector-id925179234", "Lateral", 12, 23,45,67
-      , 54, 4, 6, 6,6, 6),
-    new Property("07/01/2021", "https://media.istockphoto.com/vectors/ticket-icon-vector-id925179234", "Overhead", 12, 23,45,67
-      , 54, 4, 6, 6,6, 6),
-    new Property("07/01/2021", "https://media.istockphoto.com/vectors/ticket-icon-vector-id925179234", "Underground", 12, 23,45,67
-      , 54, 4, 6, 6,6, 6),
-  ];
+  properties: Property[];
+  showNewProperty: boolean = false;
 
-  constructor() { }
+  constructor(private propertyListService: PropertyService,
+              private stemService: StemService ) { }
 
   ngOnInit(): void {
+    this.getProperties();
+    console.log('Initted');
   }
 
   onPropClicked(property: Property) {
     this.propertyWasSelected.emit(property);
+  }
+
+  newPropertyClicked () {
+    this.showNewProperty = true;
+  }
+
+  newPropertyCanceled () {
+    this.showNewProperty = false;
+  }
+
+  getProperties() {
+    this.propertyListService.getProperties()
+      .subscribe((data: Property[]) => {
+        this.properties = [...data];
+        this.stemService.mapProperties(this.properties);
+      });
+  }
+
+
+
+  propertyCreated() {
+    this.propertyListService.getProperties()
+      .subscribe((data: Property[]) => {
+        this.properties = [...data];
+        this.showNewProperty = false;
+      });
+
   }
 
 }

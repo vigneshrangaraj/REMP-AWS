@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var app = require('../server');
+var ObjectId = require('mongodb').ObjectId;
 
 router.get('/', function (req, res, next) {
     app.mongo.collection('properties').find().toArray(function(err, data) {
@@ -24,22 +25,18 @@ router.post('/createProp', function (req, res, next) {
             console.log(err);
             res.json({err: err});
         } else {
-            res.json({"res": "Success"});
+            res.json(results.ops[0]);
         }
     })
 });
 
-
 router.post('/editProp', function (req, res, next) {
-    var body = req.body
-    var keys = Object.keys(req.body);
-    try {
-        var body1 = JSON.parse(keys[0])
-    } catch (e) {
-        console.log('Error', e);
-    }
+    var body = req.body;
 
-    app.mongo.collection('properties').update({uuid: body1.uuid}, {$set: body1}, {upsert: false}, function(err, results) {
+    var _id = body._id;
+    delete body._id;
+
+    app.mongo.collection('properties').update({_id: ObjectId(_id)}, {$set: body}, {upsert: false}, function(err, results) {
         if (err) {
             console.log('/properties: Error editing item');
             console.log();
@@ -53,14 +50,8 @@ router.post('/editProp', function (req, res, next) {
 
 router.post('/deleteProp/', function (req, res, next) {
     var body = req.body;
-    var keys = Object.keys(req.body);
-    try {
-        var body1 = JSON.parse(keys[0])
-    } catch (e) {
-        console.log('Error', e);
-    }
 
-    app.mongo.collection('properties').remove({uuid: body1.uuid}, function(err, results) {
+    app.mongo.collection('properties').remove({_id: ObjectId(body._id)}, function(err, results) {
         if (err) {
             console.log('/properties: Error editing item');
             console.log();
